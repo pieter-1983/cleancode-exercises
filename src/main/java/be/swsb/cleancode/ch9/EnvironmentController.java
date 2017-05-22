@@ -19,27 +19,22 @@ public class EnvironmentController {
         double currentTemperature = controlHardware.getTemp();
 
         if (currentTemperature <= TOO_COLD) {
-            controlHardware.turnOnBlower();
-            controlHardware.turnOnHeater();
+            TooCold tooCold= new TooCold();
+            tooCold.reactToTemperature(controlHardware);
             if (currentTemperature <= WAY_TOO_COLD) {
-                controlHardware.turnOnLoTempAlarm();
-            } else {
-                controlHardware.turnOffLoTempAlarm();
+              WayTooCold wayTooCold = new WayTooCold();
+              wayTooCold.reactToTemperature(controlHardware);
             }
         } else if (currentTemperature >= TOO_HOT) {
-            controlHardware.turnOnBlower();
-            controlHardware.turnOnCooler();
+          TooHot tooHot = new TooHot();
+          tooHot.reactToTemperature(controlHardware);
             if (currentTemperature >= WAY_TOO_HOT) {
-                controlHardware.turnOnHiTempAlarm();
-            } else {
-                controlHardware.turnOffHiTempAlarm();
+             WayTooHot wayTooHot =  new WayTooHot();
+             wayTooHot.reactToTemperature(controlHardware);
             }
         } else {
-            controlHardware.turnOffBlower();
-            controlHardware.turnOffCooler();
-            controlHardware.turnOffHeater();
-            controlHardware.turnOffLoTempAlarm();
-            controlHardware.turnOffHiTempAlarm();
+           NormalTemp normalTemp= new NormalTemp();
+           normalTemp.reactToTemperature(controlHardware);
         }
     }
 }
