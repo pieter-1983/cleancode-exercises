@@ -1,6 +1,6 @@
 package be.swsb.cleancode.ch9;
 
-public class TooCold implements HardwareStates {
+public class TooCold implements HardwareState {
 
     @Override
     public void reactToTemperature(ControlHardware controlHardware) {
