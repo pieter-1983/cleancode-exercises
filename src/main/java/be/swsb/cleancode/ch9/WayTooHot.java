@@ -1,6 +1,6 @@
 package be.swsb.cleancode.ch9;
 
-public class WayTooHot implements HardwareState {
+public class WayTooHot implements HardwareTemperature {
 
 
     @Override

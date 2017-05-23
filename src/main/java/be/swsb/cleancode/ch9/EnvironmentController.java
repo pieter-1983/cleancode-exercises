@@ -13,16 +13,13 @@ public class EnvironmentController {
         this.controlHardware = controlHardware;
     }
 
-    // Just like Uncle Bob says: I'd rather you not worry about that while reading the test.
-    // I'd rather you just worry about whether you agree that the end state of the system is consistent with the temperature being "way too cold".
-
     public void hardwareActionsDependingOnTemperature() {
-        HardwareState hardwareState = determineTemperatureState();
-        hardwareState.reactToTemperature(controlHardware);
+        HardwareTemperature hardwareTemperature = determineTemperature();
+        hardwareTemperature.reactToTemperature(controlHardware);
     }
 
 
-    public HardwareState determineTemperatureState() {
+    public HardwareTemperature determineTemperature() {
         double currentTemperature = controlHardware.getTemp();
 
         if (currentTemperature <= WAY_TOO_COLD) {

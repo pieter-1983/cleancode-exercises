@@ -1,6 +1,6 @@
 package be.swsb.cleancode.ch9;
 
-public class NormalTemp implements HardwareState {
+public class NormalTemp implements HardwareTemperature {
     @Override
     public void reactToTemperature(ControlHardware controlHardware) {
         controlHardware.turnOffBlower();

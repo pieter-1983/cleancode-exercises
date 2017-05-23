@@ -1,5 +1,5 @@
 package be.swsb.cleancode.ch9;
 
-public interface HardwareState {
+public interface HardwareTemperature {
     public void reactToTemperature(ControlHardware controlHardware);
 }

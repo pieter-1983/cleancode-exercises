@@ -22,9 +22,9 @@ public class EnvironmentControllerTest {
     public void turnOnCoolerAndBlowerIfTooHot() throws Exception {
         hardware.setTemp(TOO_HOT);
         controller.hardwareActionsDependingOnTemperature();
-        assertThatHeaterIsOff();
         assertThatBlowerIsOn();
         assertThatCoolerIsOn();
+        assertThatHeaterIsOff();
         assertThatHighTempAlarmIsOff();
         assertThatLowTempAlarmIsOff();
     }
@@ -46,19 +46,19 @@ public class EnvironmentControllerTest {
         controller.hardwareActionsDependingOnTemperature();
         assertThatHeatherIsOn();
         assertThatBlowerIsOn();
+        assertThatLowTempAlarmIsOn();
         assertThatHeatherIsOff();
         assertThatHighTempAlarmIsOff();
-        assertThatLowTempAlarmIsOn();
     }
 
     @Test
     public void turnOnHiTempAlarmAtThreshold() throws Exception {
         hardware.setTemp(WAY_TOO_HOT);
         controller.hardwareActionsDependingOnTemperature();
-        assertThatHeaterIsOff();
         assertThatBlowerIsOn();
         assertThatCoolerIsOn();
         assertThatHighTempAlarmIsOn();
+        assertThatHeaterIsOff();
         assertThatLowTempAlarmIsOff();
     }
 
